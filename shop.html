@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Vault | Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        NORTH <span>VAULT</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+        <button onclick="toggleDarkMode()">🌙</button>
+        <a href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a href="profile.html">👤</a>
+    </div>
+
+</header>
+
+<main class="page">
+
+    <div class="page-heading">
+        <p class="eyebrow">NORTH VAULT STORE</p>
+        <h1>Shop</h1>
+        <p>Find products you'll love.</p>
+    </div>
+
+    <div class="shop-tools">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            oninput="displayShopProducts()"
+        >
+
+        <select id="categoryFilter" onchange="displayShopProducts()">
+            <option value="all">All Categories</option>
+            <option value="Laptop">Laptops</option>
+            <option value="Phone">Phones</option>
+            <option value="Watch">Watches</option>
+            <option value="Accessory">Accessories</option>
+        </select>
+
+        <select id="sortProducts" onchange="displayShopProducts()">
+            <option value="default">Sort By</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name</option>
+        </select>
+
+    </div>
+
+    <div id="shopProducts" class="product-grid"></div>
+
+</main>
+
+<footer class="footer">
+
+    <div>
+        <a href="index.html" class="logo">NORTH <span>VAULT</span></a>
+        <p>Your trusted online store.</p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <div>
+        <h3>Account</h3>
+        <a href="login.html">Login</a>
+        <a href="profile.html">Profile</a>
+        <a href="cart.html">Cart</a>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
