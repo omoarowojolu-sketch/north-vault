@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Vault | Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        NORTH <span>VAULT</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a class="active" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+        <button onclick="toggleDarkMode()">🌙</button>
+        <a href="cart.html">🛒 <span id="cartCount">0</span></a>
+        <a href="profile.html">👤</a>
+    </div>
+
+</header>
+
+<main class="page">
+
+    <div class="page-heading">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h1>Contact Us</h1>
+    </div>
+
+    <div class="contact-layout">
+
+        <div class="card">
+
+            <h2>Contact Information</h2>
+
+            <p><strong>📧 Email:</strong> support@northvault.com</p>
+
+            <p><strong>📞 Phone:</strong> +234 800 000 0000</p>
+
+            <p><strong>📍 Address:</strong> Nigeria</p>
+
+            <p>
+                Our customer support team is available to help
+                with your questions.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Send a Message</h2>
+
+            <form id="contactForm">
+
+                <input
+                    type="text"
+                    id="contactName"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    id="contactMessage"
+                    rows="7"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button class="btn" type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

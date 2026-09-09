@@ -1,0 +1,205 @@
+Java Script DOM Manipulation and Java Script form validation 
+DOM = Document Object Model
+
+
+
+
+
+
+the Dom allows the java script to access and manipulate every element in the webpage
+Dom stand for document object model
+it converts every html document into a tree like structure calld dom
+java script uses dom to read webpage content , to modify webpage content ,to create new element, 
+
+every element in the DOM is called a node 
+e.g <div>
+    <p>
+    <h1>
+    <img>
+e.t.c
+Parent Element
+An element that contain other element
+Child Element 
+An element inside another element
+Event
+An action performed by the user or browser
+Examples
+click
+Key press
+mouse movement
+page load
+-----------------------------------------------------------------------------------------------------------
+Selecting html Element
+java script must first locate an element before modifying it
+Selecting by ID
+e.g
+<h1 id="title">
+
+Welcome
+
+</h1>
+
+Java Script
+const title = document.getElementById("title")
+--------------------------------------------------------------------------------------------------------------
+Selecting by Class
+HTML
+<p class="message">
+Hello
+</p>
+
+Java Script
+const message = document.getElementByClassName("message")
+
+Selecting by class means using java script to find or access HTML element that have a particular class name
+for example,HTMl:
+<p>class="student">John</p>
+<p>class="student">Mary</p>
+<p>class="student">Peter</p>
+
+you can  select them with Java Script:
+Let students = document.getElementByClassName("student")
+You can also use:
+let student = document.queryselectorAll(".student");
+Notice the dot . before student .in a CSS selector,. means class
+---------------------------------------------------------------------------------------------------------------
+Selecting by tag
+const paragraphs = document.getElementByTagName("p")
+
+Modern Selectors
+querySelector()
+selects the first matching element.
+const heading = document.querySelector("h1");
+
+querySelectorAll()
+Selects all matching elements.
+
+const buttons = document.querySelectorAll(".btn");
+-----------------------------------------------------------------------------------------------------------------
+Changing Text
+HTML
+<h2 id="heading">
+Welcome
+</h2>
+Java script
+document.getElementById("heading")
+.textcontent =
+"Welcome to dominionHub360";
+
+Changing HTML content
+document.getElementById("heading")
+.innerHTML  =
+"<span>Welcome Students!</span>";
+-------------------------------------------------------------------------------------------------------------------
+Important:
+textContent treats content as plain text
+innerHTMl tags.
+
+use textContent whenever possible for better security.
+-------------------------------------------------------------------------------------------------------------------
+Changing CSS styles
+Html
+<P id="info">
+Learning Java Script
+</p>
+--------------------------------------------------------------------------------------------------------------------
+Javascript
+const info= document.getElementById("info");
+info.style.color = "green";
+info.style.fontSize = "24px";
+info.style.fontWeight = "bold";
+
+Changing Classes
+Instead of applying many styles with java script, add or remove CSS classes.
+CSS
+.highlight{
+background: #ffe066;
+color: #000;
+padding:15px;
+bprder-radius:8px;
+}
+
+Java Script
+document.getElementById("info")
+.classlist.add("highlight");
+
+Remove CLass
+document.getElementById("info")
+.classlist.remove("highlight")
+
+Toggle class
+document.getElementById("info")
+.classlist.toggle("highlight");
+
+Creating New Element
+const paagraph = document.createElement("p");
+paragraph.textContent =
+"This paragraph was created using JavaScript.";
+document.body.appendChild(paragraph);
+
+Removing Elements
+const element - document.getElementById("advert");
+element.remove();
+
+Event Listeners
+javaScript listens to user actions
+HTML
+<button id="btn">
+click me
+</button>
+Java Script
+document.getElementById("btn")
+.addEventListener("click", function(){
+alert("button Clicked");
+});
+
+common Events
+Event      Description
+click      Mouse click
+disclick   Double click
+mouse over mouse enters element
+mouseout   mouse leaves element
+keyup      key released
+keydown    key pressed
+input      user types
+change     form value changes
+submit     form submited
+
+
+Form Validation
+Validation ensures users enter correct information before submitting a form
+Example fields:
+Name
+Email
+Password
+Phone Number
+
+Example Form
+HTMl
+<form id="registerForm">
+
+<input>
+type="text"
+id="full name"
+placeholder=Full Name">
+
+<button type="submit">
+
+Register
+
+</button>
+
+
+
+Selecting an HTML element means finding and accessing an element on a webpage with java script so that you can read, change, remove, or interact with it.
+The Basic process is:
+HTml element➡select it with javascript➡Do something to it
+for Example
+
+let button = document.queryseletor("button");
+
+button.addEventlistener("click, function() {
+    alert("Button clicked);
+});
+java script selects the button first, then tells it what to do when someone clicks it
+

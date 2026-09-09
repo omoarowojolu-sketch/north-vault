@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>North Vault | Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =========================================
+           IMAGE UPLOAD
+        ========================================= */
+
+        .image-upload-box {
+            margin-top: 15px;
+        }
+
+        .image-upload-box label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .image-upload-box input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .image-preview-box {
+            margin-top: 15px;
+            width: 100%;
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed #ccc;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        #adminImagePreview {
+            display: none;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        /* =========================================
+           ADMIN PRODUCT
+        ========================================= */
+
+        .admin-product-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 0;
+        }
+
+        .admin-product-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-real-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .add-product-button {
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            NORTH <span>VAULT</span>
+        </a>
+
+
+        <a
+            class="side-active"
+            href="admin.html"
+        >
+            📊 Dashboard
+        </a>
+
+
+        <a href="shop.html">
+            🛍️ Shop
+        </a>
+
+
+        <a href="cart.html">
+            🛒 Orders
+        </a>
+
+
+        <a href="profile.html">
+            👤 Profile
+        </a>
+
+
+        <a href="index.html">
+            🏠 Website
+        </a>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- TOP -->
+
+        <div class="admin-top">
+
+            <div>
+
+                <p class="eyebrow">
+                    NORTH VAULT ADMIN
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <button
+                type="button"
+                onclick="toggleDarkMode()"
+            >
+                🌙
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             STATISTICS
+        ====================================== -->
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <span>
+                    Products
+                </span>
+
+                <strong id="adminProductCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>
+                    Cart Items
+                </span>
+
+                <strong id="adminCartCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>
+                    Customers
+                </span>
+
+                <strong id="adminCustomerCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span>
+                    Revenue
+                </span>
+
+                <strong id="adminRevenue">
+                    ₦0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             ADMIN GRID
+        ====================================== -->
+
+        <div class="admin-grid">
+
+
+            <!-- =================================
+                 ADD PRODUCT
+            ================================== -->
+
+            <div class="card">
+
+                <h2>
+                    Add Product
+                </h2>
+
+
+                <form
+                    id="addProductForm"
+                    enctype="multipart/form-data"
+                >
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <input
+                        type="text"
+                        id="adminProductName"
+                        placeholder="Product Name"
+                        autocomplete="off"
+                        required
+                    >
+
+
+                    <!-- PRICE -->
+
+                    <input
+                        type="number"
+                        id="adminProductPrice"
+                        placeholder="Price"
+                        min="1"
+                        step="1"
+                        required
+                    >
+
+
+                    <!-- CATEGORY -->
+
+                    <select
+                        id="adminProductCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Laptop">
+                            Laptop
+                        </option>
+
+                        <option value="Phone">
+                            Phone
+                        </option>
+
+                        <option value="Watch">
+                            Watch
+                        </option>
+
+                        <option value="Accessory">
+                            Accessory
+                        </option>
+
+                    </select>
+
+
+
+                    <!-- =================================
+                         PRODUCT IMAGE
+                    ================================== -->
+
+                    <div class="image-upload-box">
+
+                        <label for="adminProductImage">
+                            Product Image
+                        </label>
+
+
+                        <input
+                            type="file"
+                            id="adminProductImage"
+                            name="productImage"
+                            accept="image/jpeg,image/png,image/webp,image/jpg"
+                            required
+                        >
+
+
+                        <!-- PREVIEW -->
+
+                        <div class="image-preview-box">
+
+                            <img
+                                id="adminImagePreview"
+                                src=""
+                                alt="Product Preview"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ADD BUTTON -->
+
+                    <button
+                        class="btn add-product-button"
+                        type="submit"
+                    >
+                        Add Product
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================
+                 PRODUCT LIST
+            ================================== -->
+
+            <div class="card">
+
+                <h2>
+                    Products
+                </h2>
+
+
+                <div id="adminProducts">
+
+                    <p>
+                        Loading products...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

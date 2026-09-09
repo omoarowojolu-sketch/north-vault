@@ -1,0 +1,5 @@
+<?php
+
+$flutterwave_secret_key = "FLWSECK_TEST-2c9901798bc58a0e7911952a7c8bf486-X";
+
+?>
