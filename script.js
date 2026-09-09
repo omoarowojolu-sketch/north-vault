@@ -105,7 +105,7 @@ async function loadProductsFromDatabase() {
     try {
 
         const response =
-            await fetch("product.php");
+            await fetch("api/products.php");
 
 
         if (!response.ok) {
@@ -2610,7 +2610,7 @@ function deleteProduct(id) {
 
 
     window.location.href =
-        "products.php";
+        "admin/products.php";
 
 }
 

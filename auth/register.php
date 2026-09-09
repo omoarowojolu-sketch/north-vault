@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "../databases.php";
+require_once "../config/database.php";
 
 $message = "";
 
